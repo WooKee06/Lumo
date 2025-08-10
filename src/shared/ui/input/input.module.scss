@@ -1,0 +1,21 @@
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  flex: 1;
+  label {
+    font-size: 0.9rem;
+    color: #ccc;
+  }
+  &__hint {
+    font-size: 0.75rem;
+    color: #888;
+  }
+  input {
+    padding: 12px 15px;
+    border-radius: 10px;
+    outline: none;
+    background-color: #1a1a1a99;
+    color: #fff;
+  }
+}

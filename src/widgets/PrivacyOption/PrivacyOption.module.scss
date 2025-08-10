@@ -1,0 +1,67 @@
+.privacy-card {
+  border: 1px solid #444;
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  background-color: #111;
+  transition: border 0.2s ease;
+  flex: 1;
+
+  &__current-status {
+    font-weight: 300;
+  }
+
+  &--selected {
+    border-color: #4f4fff;
+  }
+
+  &__avatar {
+    position: relative;
+    width: 48px;
+    height: 48px;
+  }
+
+  &__avatar-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border-radius: 50%;
+    background-color: #2a2a2a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #888;
+    cursor: pointer;
+    border: 2px dashed #444;
+    transition: all 0.2s ease-in-out;
+  }
+
+  &__status {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid #111;
+    font-weight: 300;
+    box-shadow: 0 0 6px rgba(0, 255, 0, 0.4);
+
+    &--online {
+      background-color: #00ff00;
+    }
+
+    &--offline {
+      background-color: #888;
+    }
+  }
+
+  &__label {
+    color: #fff;
+    font-size: 14px;
+  }
+}

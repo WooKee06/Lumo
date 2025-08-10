@@ -1,4 +1,4 @@
-import styles from "../register.module.scss";
+import styles from "./PrivacyOption.module.scss";
 
 type Props = {
   selected: boolean;
