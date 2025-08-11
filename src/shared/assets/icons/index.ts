@@ -1,1 +1,2 @@
-export { default as GitHubSvg } from "./github.svg";
+import { GithubSvg } from "./GithuhbSvg";
+import { GoogleSvg } from "./GoogleSvg";

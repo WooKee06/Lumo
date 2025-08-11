@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "./profileStep.module.scss";
 import Link from "next/link";
+import { Button } from "@/shared/ui/button";
+import { Input } from "@/shared/ui/input";
 
 export default function ProfileStep() {
   return (
@@ -32,70 +34,22 @@ export default function ProfileStep() {
       </div>
 
       <form className={styles["profile-step__form"]}>
-        <div className={styles["profile-step__input-group"]}>
-          <div className={styles["profile-step__input"]}>
-            <label htmlFor="fullName">Full Name</label>
-            <input id="fullName" type="text" placeholder="Your full name" />
-          </div>
-        </div>
-
-        <div className={styles["profile-step__input-group"]}>
-          <div className={styles["profile-step__input"]}>
-            <label htmlFor="dob">Date of Birth</label>
-            <input id="dob" type="date" />
-          </div>
-        </div>
-
-        <div className={styles["profile-step__input-group"]}>
-          <div className={styles["profile-step__input"]}>
-            <label htmlFor="status">Custom Status</label>
-            <input
-              id="status"
-              type="text"
-              placeholder="e.g., Coffee lover ☕"
-            />
-          </div>
-        </div>
-
-        <div className={styles["profile-step__input-group"]}>
-          <div className={styles["profile-step__input"]}>
-            <label htmlFor="website">Website</label>
-            <input
-              id="website"
-              type="url"
-              placeholder="https://your-site.com"
-            />
-          </div>
-        </div>
-
-        <div className={styles["profile-step__input-group"]}>
-          <div className={styles["profile-step__input"]}>
-            <label htmlFor="interests">Interests</label>
-            <input
-              id="interests"
-              type="text"
-              placeholder="e.g., Coding, Art, Gaming"
-            />
-          </div>
-        </div>
-
-        <div className={styles["profile-step__input-group"]}>
-          <div className={styles["profile-step__input"]}>
-            <label htmlFor="location">Location</label>
-            <input
-              id="location"
-              type="text"
-              placeholder="e.g., Berlin, Germany"
-            />
-          </div>
-        </div>
+        <Input title="Full Name" type="text" placeholder="Your name " />
+        <Input title="Date of Birth" type="date" />
+        <Input title="Custom Status" type="text" placeholder="developer" />
+        <Input title="Website" type="url" placeholder="https://your-site.com" />
+        <Input
+          title="Interests"
+          type="text"
+          placeholder="Coding, Art, Gaming"
+        />
+        <Input title="Location" type="text" placeholder="Derbent" />
 
         <div className="flex gap-2 ">
           <button type="button" className={styles["profile-step__next-button"]}>
             Back
           </button>
           <Link
-            type="button"
             href="/register/privacy"
             className={styles["profile-step__next-button"]}
           >
