@@ -5,6 +5,7 @@ import styles from "./button.module.scss";
 interface ButtonProps {
   children: React.ReactNode;
   pathname?: string;
+
   onClick?: () => void;
 }
 
@@ -20,7 +21,7 @@ export const Button = ({ children, pathname, onClick }: ButtonProps) => {
   };
 
   return (
-    <button className={styles.button} onClick={handleClick}>
+    <button className={styles.button} type="submit" onClick={handleClick}>
       {children}
     </button>
   );

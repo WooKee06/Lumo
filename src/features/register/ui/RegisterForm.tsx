@@ -4,8 +4,20 @@ import { Input } from "@/shared/ui/input";
 import { Button } from "@/shared/ui/button";
 import { GoogleSvg } from "@/shared/assets/icons/GoogleSvg";
 import { GithubSvg } from "@/shared/assets/icons/GithuhbSvg";
+import { useState } from "react";
+import { authStore } from "../model/authStore";
 
 export default function RegisterForm() {
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("send data");
+    authStore.register(email, password, name);
+  };
+
   return (
     <div className={styles["sign-up-step"]}>
       <h2 className={styles["sign-up-step__title"]}>Sign Up Account</h2>
@@ -30,18 +42,33 @@ export default function RegisterForm() {
         <hr />
       </div>
 
-      <form className={styles["sign-up-step__form"]}>
+      <form onSubmit={handleSubmit} className={styles["sign-up-step__form"]}>
         <div className={styles["sign-up-step__input-group"]}>
-          <Input title={"First name"} type="text" />
+          <Input
+            title={"First name"}
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
           <Input title={"Last name"} type="text" />
         </div>
 
-        <Input title={"Email"} type="email" />
+        <Input
+          title={"Email"}
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
 
-        <Input title={"Password"} type="password" />
+        <Input
+          title={"Password"}
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+
+        <Button pathname="/register/profile">Next Step</Button>
       </form>
-
-      <Button pathname="/register/profile">Next Step</Button>
 
       <p className={styles["sign-up-step__footer"]}>
         Already have an account?{" "}
