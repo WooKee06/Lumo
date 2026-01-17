@@ -7,6 +7,9 @@ const RecentlyPlayed = () => {
         <h2 className={s.title}>
             Recently played list
         </h2>
+        <ul className={s.cardList}>
+          <li className={s.cardItem}></li>
+        </ul>
     </div>
   )
 }
