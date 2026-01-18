@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import {   Montserrat } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import Header from "@/shared/Header/ui/Header";
-import './global.scss'
-
+import "./global.scss";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat-mono",
@@ -10,7 +9,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Lumo",
+  title: "Bellatrix",
   description: "Simple player",
 };
 
@@ -21,12 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${montserrat.variable} antialiased`}
-      >
-    <Header/>
-
-        {children}
+      <body className={`${montserrat.variable} antialiased`}>
+        <Header />
+        <div className="wrapper">{children}</div>
       </body>
     </html>
   );

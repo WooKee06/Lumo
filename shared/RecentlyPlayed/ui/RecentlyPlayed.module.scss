@@ -1,12 +1,36 @@
 .recently {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
 }
 
 .title {
-    font-size: 30px;
-    font-weight: 600;
-    color: #fff;
+  font-size: 25px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.cardList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cardItem {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.cartTitle {
+  margin: 0;
+  padding: 0;
+}
+
+.cartDescription {
+  margin: 0;
+  padding: 0;
 }

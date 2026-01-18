@@ -1,57 +1,65 @@
 .header {
-    padding: 10px 0;
-    width: 100%;
+  padding: 10px 0;
+  width: 100%;
 
-     > div  {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+  > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .userSection {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .user {
+      color: #9b3145;
+      background: linear-gradient(147.2deg, #ffd8de 10.02%, #e0889d 96.08%);
     }
 
+    > div {
+      width: 44px;
+      height: 44px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #2a2a2a;
+      border-radius: 30px;
 
-    .userSection {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-
-
-        .user {
-            color: #9B3145;
-background: linear-gradient(147.2deg, #FFD8DE 10.02%, #E0889D 96.08%);
-;
-        }
-
-        >div {
-            width: 44px;
-            height: 44px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #2A2A2A;
-            border-radius: 30px;
-            
-
-            > img {
-                         background-color: #2A2A2A;
-
-            }
-        }
+      > img {
+        background-color: #2a2a2a;
+      }
     }
+  }
 
-    .links{
-        ul {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
+  .links {
+    ul {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
 
-            a {
-                color: #fff;
-                text-decoration: none;
-            }
+      a {
+        color: #fff;
+        text-decoration: none;
+        padding: 8px 15px;
+        transition: all 0.3s ease-in-out;
+        border-radius: 20px;
+
+        &.active {
+          background-color: #fff;
+          color: #000;
         }
+
+        &:hover {
+          color: #000000;
+          background-color: #ffffff61;
+        }
+      }
     }
+  }
 }
