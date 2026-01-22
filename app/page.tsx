@@ -1,11 +1,10 @@
-import Header from "@/shared/Header/ui/Header";
-import RecentlyPlayed from "@/shared/RecentlyPlayed/ui/RecentlyPlayed";
-import Image from "next/image";
+import Sidebar from "@/widgets/sidebar/ui/Sidebar";
+import "./global.scss";
 
 export default function Home() {
   return (
-    <>
-      <RecentlyPlayed />
-    </>
+    <div className="home">
+      <Sidebar />
+    </div>
   );
 }

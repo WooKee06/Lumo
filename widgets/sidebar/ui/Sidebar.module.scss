@@ -1,0 +1,14 @@
+.sidebar {
+  width: 30%;
+  height: 100%;
+  max-width: 400px;
+  background-color: #50505014;
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  display: flex;
+
+  .sidebarWrapper {
+    padding: 10px;
+    width: 100%;
+  }
+}

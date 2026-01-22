@@ -3,11 +3,21 @@
 }
 
 body {
-  background-color: #181818;
+  background-color: #0a0a0a;
+  overflow: hidden;
+  margin: 0;
+  height: 100vh;
+}
+
+.home {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  gap: 100px;
 }
 
 .wrapper {
-  max-width: 1440px;
-  width: 90vw;
-  margin: 0 auto;
+  padding: 10px;
+  height: -webkit-fill-available;
+  height: fill-available;
 }

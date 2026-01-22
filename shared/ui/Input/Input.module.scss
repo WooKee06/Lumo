@@ -1,0 +1,16 @@
+.input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  border-radius: 10px;
+  background-color: #141414;
+  padding: 10px;
+
+  > input {
+    background: none;
+    border: none;
+    outline: none;
+    color: #fff;
+  }
+}
