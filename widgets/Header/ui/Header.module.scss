@@ -5,6 +5,11 @@
   align-items: center;
   justify-content: space-between;
 
+  .logo img {
+    width: 20px;
+    height: 20px;
+  }
+
   .userSection {
     display: flex;
     align-items: center;
@@ -16,8 +21,8 @@
     }
 
     > div {
-      width: 44px;
-      height: 44px;
+      width: 36px;
+      height: 36px;
       cursor: pointer;
       display: flex;
       align-items: center;
