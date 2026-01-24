@@ -1,6 +1,7 @@
 import s from "./Header.module.scss";
 
 import Logo from "../../../public/logo.svg";
+import UserImg from "../../../public/userImg.jpg";
 
 import Image from "next/image";
 
@@ -11,10 +12,8 @@ const Header = () => {
         <Image src={Logo} alt="header-logo" />
       </strong>
 
-      <div className={s.userSection}>
-        <div className={s.user}>
-          <span>SK</span>
-        </div>
+      <div className={s.user}>
+        <Image alt="userImage" src={UserImg} />
       </div>
     </div>
   );

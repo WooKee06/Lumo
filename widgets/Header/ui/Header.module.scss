@@ -10,29 +10,16 @@
     height: 20px;
   }
 
-  .userSection {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  .user {
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    border-radius: 30px;
 
-    .user {
-      color: #9b3145;
-      background: linear-gradient(147.2deg, #ffd8de 10.02%, #e0889d 96.08%);
-    }
-
-    > div {
-      width: 36px;
-      height: 36px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #2a2a2a;
-      border-radius: 30px;
-
-      > img {
-        background-color: #2a2a2a;
-      }
+    > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
 
