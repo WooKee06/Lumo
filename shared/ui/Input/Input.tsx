@@ -1,13 +1,28 @@
+"use client";
+import { IoIosClose } from "react-icons/io";
 import s from "./Input.module.scss";
 import Search from "../../../public/search.svg";
 import Image from "next/image";
-type Props = {};
+import { useState } from "react";
 
-const Input = (props: Props) => {
+const Input = () => {
+  const [value, setValue] = useState<string>("");
+
   return (
     <div className={s.input}>
-      <Image src={Search} width={20} height={20} alt="search svg icon" />
-      <input type="text" placeholder="Search music" />
+      <div>
+        <Image src={Search} width={20} height={20} alt="search svg icon" />
+        <input
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          type="text"
+          placeholder="Search music"
+        />
+      </div>
+
+      <button className={value.trim() !== "" ? s.active : ""}>
+        <IoIosClose size={25} color="#fff" />
+      </button>
     </div>
   );
 };

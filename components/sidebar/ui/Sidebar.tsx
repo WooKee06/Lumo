@@ -1,15 +1,16 @@
 import React from "react";
 import s from "./Sidebar.module.scss";
-import Header from "@/widgets/Header/ui/Header";
+import Header from "@/components/Header/ui/Header";
 import Input from "@/shared/ui/Input/Input";
-type Props = {};
+import Playlist from "@/components/playlist/ui/Playlist";
 
-const Sidebar = (props: Props) => {
+const Sidebar = () => {
   return (
     <div className={s.sidebar}>
       <div className={s.sidebarWrapper}>
         <Header />
         <Input />
+        <Playlist />
       </div>
     </div>
   );

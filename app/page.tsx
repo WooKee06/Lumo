@@ -1,4 +1,4 @@
-import Sidebar from "@/widgets/sidebar/ui/Sidebar";
+import Sidebar from "@/components/sidebar/ui/Sidebar";
 import "./global.scss";
 
 export default function Home() {

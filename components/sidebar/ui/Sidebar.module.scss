@@ -1,12 +1,12 @@
 .sidebar {
   width: 30%;
   height: 100%;
-  max-width: 400px;
+  max-width: 350px;
   background-color: #50505014;
   backdrop-filter: blur(10px);
   border-radius: 10px;
   display: flex;
-
+  overflow: hidden;
   .sidebarWrapper {
     padding: 10px;
     width: 100%;

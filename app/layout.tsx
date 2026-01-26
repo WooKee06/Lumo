@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
-import Header from "@/widgets/Header/ui/Header";
+import { Raleway } from "next/font/google";
 import "./global.scss";
 
-const montserrat = Montserrat({
-  variable: "--font-montserrat-mono",
+const raleway = Raleway({
+  variable: "--font-raleway-mono",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "Bellatrix",
-  description: "Simple player",
+  title: "Zpotify",
+  description: "Wookee sound club",
 };
 
 export default function RootLayout({
@@ -20,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${montserrat.variable} antialiased`}>
+      <body className={`${raleway.variable} antialiased`}>
         <div className="wrapper">{children}</div>
       </body>
     </html>
