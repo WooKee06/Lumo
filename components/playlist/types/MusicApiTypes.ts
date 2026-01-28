@@ -9,7 +9,7 @@ export interface Track {
   explicit_lyrics: boolean;
   explicit_content_lyrics: number;
   explicit_content_cover: number;
-  preview: string; // URL 30-секундного превью
+  preview: string;
   md5_image: string;
   position: number;
   artist: Artist;

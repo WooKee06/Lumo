@@ -26,10 +26,6 @@ const Playlist = () => {
     fetchPosts();
   }, []);
 
-  if (loading || !playlist) {
-    return <p>Загрузка...</p>;
-  }
-
   return (
     <div className={s.playlist}>
       <ul>
