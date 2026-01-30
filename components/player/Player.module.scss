@@ -1,0 +1,105 @@
+.player {
+  color: #fff;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-right: 20px;
+}
+
+.playerHead {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 40px;
+}
+
+.playerFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  gap: 20px;
+  position: relative;
+}
+
+.trackAction {
+  position: absolute;
+
+  transform: translate(-50% -50%);
+  left: 50%;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  button {
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    padding: 10px;
+
+    &:hover {
+      transform: scale(1.1);
+      opacity: 0.5;
+    }
+  }
+}
+
+.trackLenght {
+  font-size: 50px;
+  font-weight: 300;
+  margin: 0;
+
+  span {
+    opacity: 0.5;
+  }
+}
+
+.traclkTitle {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+
+  font-size: 50px;
+  font-weight: 400;
+
+  small {
+    opacity: 0.5;
+    font-weight: 300;
+    font-size: 16px;
+  }
+}
+
+.trackAutor {
+  font-weight: 300;
+  margin: 0;
+  font-size: 60px;
+}
+
+.trackInfo {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+
+  > div {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    small {
+      opacity: 0.5;
+    }
+
+    span {
+      font-size: 60px;
+    }
+  }
+}

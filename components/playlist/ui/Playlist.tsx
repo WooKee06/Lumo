@@ -1,30 +1,32 @@
-"use client";
+'use client';
 
-import React, { useEffect, useState } from "react";
-import s from "./Playlist.module.scss";
-import Image from "next/image";
-import { Track } from "../types/MusicApiTypes";
-import { GetMusic } from "../api/MusicApi";
+import React, { useEffect, useState } from 'react';
+import s from './Playlist.module.scss';
+import Image from 'next/image';
+import { Track } from '../types/MusicApiTypes';
+import { GetMusic } from '../api/MusicApi';
+
+import SearchPlaySvg from '../../../public/play-circle.svg';
 
 const Playlist = () => {
   const [playlist, setPlaylist] = useState<Track[]>([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const data = await GetMusic();
-        console.log(data);
-        setPlaylist(data);
-      } catch (err) {
-        console.error("Ошибка загрузки песен:", err);
-      } finally {
-        setLoading(false);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchPosts = async () => {
+  //     try {
+  //       const data = await GetMusic();
+  //       console.log(data);
+  //       setPlaylist(data);
+  //     } catch (err) {
+  //       console.error("Ошибка загрузки песен:", err);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
 
-    fetchPosts();
-  }, []);
+  //   fetchPosts();
+  // }, []);
 
   return (
     <div className={s.playlist}>
@@ -36,6 +38,11 @@ const Playlist = () => {
               alt="playlistImg"
               fill
             />
+
+            <span className={s.SearchPlaySvg}>
+              <Image src={SearchPlaySvg} alt="SearchPlaySvg" />
+            </span>
+            <small>4:07</small>
           </div>
           <div className={s.musicContent}>
             <h2 className={s.musicTitle}>Nostalgic</h2>
@@ -45,7 +52,7 @@ const Playlist = () => {
           </div>
         </li>
 
-        {playlist.map((track) => (
+        {playlist?.map((track) => (
           <li key={track.id} className={s.misuc}>
             <div className={s.musicImg}>
               <Image
