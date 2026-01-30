@@ -26,6 +26,29 @@
   position: relative;
 }
 
+.playerSound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 70px;
+  input {
+    transform: rotateZ(270deg);
+    transition: all 0.2s ease-in-out;
+
+    &::-webkit-slider-runnable-track {
+      background: #656565;
+      height: 3px;
+
+      border-radius: 4px;
+    }
+
+    &::-moz-range-track {
+      background: #053a5f;
+      height: 0.5rem;
+    }
+  }
+}
+
 .trackAction {
   position: absolute;
 

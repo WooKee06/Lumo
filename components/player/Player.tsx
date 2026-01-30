@@ -4,6 +4,7 @@ import s from './Player.module.scss';
 import StopPlayerSvg from '../../public/stopSvg.svg';
 import prevPlayerSvg from '../../public/prevSvg.svg';
 import nextPlayerSvg from '../../public/nextSvg.svg';
+import PlayerSoundSvg from '../../public/sound.svg';
 import Image from 'next/image';
 
 const Player = () => {
@@ -23,6 +24,14 @@ const Player = () => {
             <small>Albums</small> <span>128</span>
           </div>
         </section>
+      </div>
+
+      <div className={s.playerContent}>
+        <div></div>
+        <div className={s.playerSound}>
+          <input type="range" />
+          <Image src={PlayerSoundSvg} alt="" />
+        </div>
       </div>
 
       <div className={s.playerFooter}>
