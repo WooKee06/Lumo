@@ -28,10 +28,10 @@ const Player = () => {
 
       <div className={s.playerContent}>
         <div></div>
-        <div className={s.playerSound}>
+        {/* <div className={s.playerSound}>
           <input type="range" />
           <Image src={PlayerSoundSvg} alt="" />
-        </div>
+        </div> */}
       </div>
 
       <div className={s.playerFooter}>
