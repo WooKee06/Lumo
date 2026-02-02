@@ -1,33 +1,9 @@
-'use client';
-
-import React, { useEffect, useState } from 'react';
 import s from './Playlist.module.scss';
 import Image from 'next/image';
-import { Track } from '../types/MusicApiTypes';
-import { GetMusic } from '../api/MusicApi';
 
 import SearchPlaySvg from '../../../public/play-circle.svg';
 
 const Playlist = () => {
-  const [playlist, setPlaylist] = useState<Track[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  // useEffect(() => {
-  //   const fetchPosts = async () => {
-  //     try {
-  //       const data = await GetMusic();
-  //       console.log(data);
-  //       setPlaylist(data);
-  //     } catch (err) {
-  //       console.error("Ошибка загрузки песен:", err);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-
-  //   fetchPosts();
-  // }, []);
-
   return (
     <div className={s.playlist}>
       <ul>
