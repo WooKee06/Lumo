@@ -27,24 +27,6 @@ const Playlist = () => {
             <span className={s.musicLength}>56 Tracks ~ 1:35:42</span>
           </div>
         </li>
-
-        {playlist?.map((track) => (
-          <li key={track.id} className={s.misuc}>
-            <div className={s.musicImg}>
-              <Image
-                src={`https://e-cdns-images.dzcdn.net/images/cover/${track.md5_image}/250x250.jpg`}
-                alt="playlistImg"
-                fill
-              />
-            </div>
-            <div className={s.musicContent}>
-              <h2 className={s.musicTitle}>{track.title}</h2>
-              <small className={s.musicAuthor}>{track.title_short}</small>
-
-              <span className={s.musicLength}>Single ~ {track.duration}</span>
-            </div>
-          </li>
-        ))}
       </ul>
     </div>
   );
