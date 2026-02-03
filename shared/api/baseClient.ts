@@ -1,6 +1,6 @@
-import axios from "axios";
+import axios from 'axios';
 
 export const api = axios.create({
-  baseURL: "https://api.deezer.com/chart/0/",
+  baseURL: 'https://api.deezer.com/',
   withCredentials: true,
 });
