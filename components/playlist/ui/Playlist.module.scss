@@ -24,7 +24,7 @@
     margin-top: 10px;
     overflow-y: scroll;
     padding-right: 5px;
-
+    overflow-x: hidden;
     position: relative;
 
     &::-webkit-scrollbar {
@@ -78,10 +78,31 @@
       transform: translateY(10);
     }
 
+    .SearchPlaySvg {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     .SearchPlaySvg img {
       opacity: 0;
       transform: scale(0.5);
       transition: all 0.2s ease-in-out;
+      position: absolute;
+
+      .playSvg {
+        opacity: 1;
+      }
+
+      &.stopSvg {
+        opacity: 0;
+      }
+
+      &.active {
+        opacity: 1;
+        transform: scale(0.5);
+      }
     }
 
     > img {
