@@ -11,6 +11,7 @@
   "dependencies": {
     "@react-icons/all-files": "^4.1.0",
     "axios": "^1.13.3",
+    "framer-motion": "^12.31.0",
     "mobx": "^6.15.0",
     "mobx-react": "^9.2.1",
     "mobx-react-lite": "^4.1.1",

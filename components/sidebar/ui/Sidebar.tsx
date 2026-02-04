@@ -1,8 +1,9 @@
-import React from "react";
-import s from "./Sidebar.module.scss";
-import Header from "@/components/Header/ui/Header";
-import Input from "@/shared/ui/Input/Input";
-import Playlist from "@/components/playlist/ui/Playlist";
+'use client';
+import s from './Sidebar.module.scss';
+import Header from '@/components/Header/ui/Header';
+import Input from '@/shared/ui/Input/Input';
+import Playlist from '@/components/playlist/ui/Playlist';
+import { motion } from 'framer-motion';
 
 const Sidebar = () => {
   return (

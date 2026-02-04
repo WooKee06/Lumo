@@ -5,23 +5,19 @@ import Image from 'next/image';
 
 import playSvg from '../../../public/play-circle.svg';
 import stopSvg from '../../../public/stop-circle.svg';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { GetMusic, Track } from '../api/MusicApi';
 import { playerStore } from '../store/TrackStore';
 import { observer } from 'mobx-react-lite';
+import { motion } from 'framer-motion';
 
 const Playlist = observer(() => {
   const [tracks, setTracks] = useState<Track[]>([]);
 
-  const handleClickTrack = (track: typeof playerStore.currentTrack) => {
+  const handleClickTrack = (track: Track) => {
     if (!track) return;
     playerStore.setCurrentTrack(track);
-
-    if (playerStore.currentTrack?.id === track.id) {
-      playerStore.toggle();
-    } else {
-      playerStore.setCurrentTrack(track);
-    }
+    playerStore.setPlaying(!playerStore.isPlaying);
   };
 
   useEffect(() => {
@@ -33,7 +29,6 @@ const Playlist = observer(() => {
     GetTracks();
   }, []);
 
-  console.log(tracks);
   return (
     <div className={s.playlist}>
       <ul>
@@ -43,10 +38,6 @@ const Playlist = observer(() => {
             key={track.id}
             className={s.misuc}
           >
-            <figure>
-              <audio controls src={track?.src || ''}></audio>
-            </figure>
-
             <div className={s.musicImg}>
               <Image
                 src="https://sun9-14.userapi.com/impg/Gt63kBGx7e-Oa_LM8AzNctas-M_sTXS-gbhqyQ/wRYrdXA1fP8.jpg?size=270x270&quality=96&sign=41921ff00f48cab1c3a76532c1380b41&c_uniq_tag=HCHqPj3-XCp6aFnwNnBVNUkUvAeFPFXXVODKqUAr7S4&type=audio"
@@ -62,13 +53,13 @@ const Playlist = observer(() => {
                     playerStore.isPlaying == true ? 'active' : s.playSvg
                   }
                 />
-                <Image
+                {/* <Image
                   src={stopSvg}
                   alt="SearchPlaySvg"
                   className={
                     playerStore.isPlaying == true ? 'active' : s.stopSvg
                   }
-                />
+                /> */}
               </span>
               <small>4:07 </small>
             </div>

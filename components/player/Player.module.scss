@@ -21,9 +21,60 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-direction: column;
   margin-bottom: 40px;
   gap: 20px;
   position: relative;
+
+  .trackDuration {
+    width: 100%;
+    height: 5px;
+    border-radius: 4px;
+    display: flex;
+    align-items: flex-start;
+    background: rgba(255, 255, 255, 0.564);
+
+    &:hover {
+      span::after {
+        transform: scale(1.3);
+      }
+
+      span {
+        opacity: 0.6;
+      }
+    }
+
+    span {
+      height: 100%;
+      border-radius: 4px;
+      width: 50%;
+      transition: all 0.1s ease-in-out;
+      background: #fff;
+      position: relative;
+
+      display: flex;
+      align-items: center;
+
+      &::after {
+        content: '';
+        position: absolute;
+        transition: all 0.1s ease-in-out;
+        height: 100%;
+        padding: 5px;
+        width: 5px;
+        border-radius: 100px;
+        background-color: rgb(255, 255, 255);
+        right: 0;
+      }
+    }
+  }
+
+  .playerFooterContent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
 }
 
 .playerSound {
@@ -57,6 +108,30 @@
   display: flex;
   align-items: center;
   gap: 5px;
+
+  .trackState {
+    > div {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+    }
+
+    img {
+      position: absolute;
+      z-index: 1;
+      transition: all 0.2s ease-in-out;
+      transform: scale(0.5);
+      opacity: 1;
+
+      &.active {
+        opacity: 1 !important;
+        z-index: 2 !important;
+        transform: scale(1);
+      }
+    }
+  }
 
   button {
     background: none;

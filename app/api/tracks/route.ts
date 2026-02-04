@@ -6,7 +6,7 @@ export async function GET() {
       listners: '20k',
       likes: '6.8k',
       artist: 'The Weekend',
-      src: '/audio/The_Weeknd_-_Blinding_Lights_67509023.mp3',
+      src: '/audio/TheWeekndBlinding.mp3',
     },
     {
       id: 2,
@@ -14,7 +14,7 @@ export async function GET() {
       listners: '20k',
       likes: '2.6k',
       artist: 'The Weekend',
-      src: '/audio/The_Weeknd_Playboi_Carti_Madonna_-_Popular_78165204.mp3',
+      src: '/audio/The_Weeknd_Playboi.mp3',
     },
     {
       id: 3,
@@ -22,7 +22,7 @@ export async function GET() {
       listners: '20k',
       likes: '3.2k',
       artist: 'The Weekend',
-      src: '/audio/The_Weeknd_Lana_Del_Rey_-_The_Abyss_79082956.mp3',
+      src: '/audio/The_Weeknd_Lana.mp3',
     },
   ]);
 }
