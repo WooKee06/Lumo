@@ -9,15 +9,20 @@ import { useEffect, useRef, useState } from 'react';
 import { GetMusic, Track } from '../api/MusicApi';
 import { playerStore } from '../store/TrackStore';
 import { observer } from 'mobx-react-lite';
-import { motion } from 'framer-motion';
+import { tr } from 'framer-motion/client';
 
 const Playlist = observer(() => {
   const [tracks, setTracks] = useState<Track[]>([]);
 
   const handleClickTrack = (track: Track) => {
-    if (!track) return;
-    playerStore.setCurrentTrack(track);
-    playerStore.setPlaying(!playerStore.isPlaying);
+    const isSameTrack = playerStore.currentTrack?.id === track.id;
+
+    if (isSameTrack) {
+      playerStore.setPlaying(!playerStore.isPlaying);
+    } else {
+      playerStore.setCurrentTrack(track);
+      playerStore.setPlaying(true);
+    }
   };
 
   useEffect(() => {
@@ -28,6 +33,8 @@ const Playlist = observer(() => {
 
     GetTracks();
   }, []);
+
+  console.log(playerStore.isPlaying);
 
   return (
     <div className={s.playlist}>
@@ -48,20 +55,25 @@ const Playlist = observer(() => {
               <span className={s.SearchPlaySvg}>
                 <Image
                   src={playSvg}
-                  alt="SearchPlaySvg"
+                  alt="StopPlayerSvg"
                   className={
-                    playerStore.isPlaying == true ? 'active' : s.playSvg
+                    playerStore.currentTrack?.id == track.id &&
+                    playerStore.isPlaying
+                      ? ''
+                      : s.active
                   }
                 />
-                {/* <Image
+                <Image
                   src={stopSvg}
-                  alt="SearchPlaySvg"
+                  alt="StopPlayerSvg"
                   className={
-                    playerStore.isPlaying == true ? 'active' : s.stopSvg
+                    playerStore.currentTrack?.id == track.id &&
+                    playerStore.isPlaying
+                      ? s.active
+                      : ''
                   }
-                /> */}
+                />
               </span>
-              <small>4:07 </small>
             </div>
             <div className={s.musicContent}>
               <h2 className={s.musicTitle}>{track.title}</h2>

@@ -69,7 +69,7 @@ const Player = observer(() => {
 
   return (
     <div className={s.player}>
-      <audio ref={audioRef} src={playerStore.currentTrack.src} />
+      {/* <audio ref={audioRef} src={playerStore.currentTrack.src} /> */}
       <div className={s.playerHead}>
         <h2 className={s.trackAutor}>{track?.artist}</h2>
 
