@@ -46,11 +46,7 @@ const Playlist = observer(() => {
             className={s.misuc}
           >
             <div className={s.musicImg}>
-              <Image
-                src="https://sun9-14.userapi.com/impg/Gt63kBGx7e-Oa_LM8AzNctas-M_sTXS-gbhqyQ/wRYrdXA1fP8.jpg?size=270x270&quality=96&sign=41921ff00f48cab1c3a76532c1380b41&c_uniq_tag=HCHqPj3-XCp6aFnwNnBVNUkUvAeFPFXXVODKqUAr7S4&type=audio"
-                alt="playlistImg"
-                fill
-              />
+              <Image src={track.imgPreview} alt="playlistImg" fill />
 
               <span className={s.SearchPlaySvg}>
                 <Image

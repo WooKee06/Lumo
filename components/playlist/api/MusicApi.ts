@@ -6,6 +6,7 @@ export type Track = {
   artist: string;
   likes: string;
   src: string;
+  imgPreview: string;
   listners: string;
 };
 
