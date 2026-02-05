@@ -51,7 +51,6 @@ const Player = observer(() => {
 
   useEffect(() => {
     if (!audioRef.current) return;
-    console.log(playerStore.isPlaying);
 
     if (playerStore.isPlaying) {
       audioRef.current.play();
@@ -69,7 +68,6 @@ const Player = observer(() => {
 
   return (
     <div className={s.player}>
-      {/* <audio ref={audioRef} src={playerStore.currentTrack.src} /> */}
       <div className={s.playerHead}>
         <h2 className={s.trackAutor}>{track?.artist}</h2>
 
@@ -93,7 +91,7 @@ const Player = observer(() => {
 
       <div className={s.playerFooter}>
         <div className={s.trackDuration}>
-          <span style={{ width: `${percent}` }}></span>
+          <span style={{ width: `${percent}%` }}></span>
           <audio ref={audioRef} src={playerStore.currentTrack.src}></audio>
         </div>
         <div className={s.playerFooterContent}>
