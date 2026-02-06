@@ -90,10 +90,10 @@ const Player = observer(() => {
       </div>
 
       <div className={s.playerFooter}>
-        <div className={s.trackDuration}>
+        {/* <div className={s.trackDuration}>
           <span style={{ width: `${percent}%` }}></span>
           <audio ref={audioRef} src={playerStore.currentTrack.src}></audio>
-        </div>
+        </div> */}
         <div className={s.playerFooterContent}>
           <h2 className={s.traclkTitle}>
             <small>Track</small>
