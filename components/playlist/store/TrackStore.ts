@@ -16,10 +16,25 @@ class PlayerStore {
     this.tracks = tracks;
   }
 
+  get activeTrackId() {
+    return this.currentTrack?.id ?? null;
+  }
+
   setTrack(track: Track) {
     this.duration = 0;
     this.isPlaying = true;
     this.currentTime = 0;
+  }
+
+  toggleTrack(track: Track) {
+    const isSame = this.currentTrack?.id === track.id;
+
+    if (isSame) {
+      this.isPlaying = !this.isPlaying;
+    } else {
+      this.currentTrack = track;
+      this.isPlaying = true;
+    }
   }
 
   setPlaying(value: boolean) {
