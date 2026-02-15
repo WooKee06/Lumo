@@ -1,5 +1,5 @@
-import { makeAutoObservable } from 'mobx';
-import { Track } from '../api/MusicApi';
+import { makeAutoObservable } from "mobx";
+import { Track } from "../api/MusicApi";
 
 class PlayerStore {
   isPlaying = false;
@@ -24,6 +24,28 @@ class PlayerStore {
     this.duration = 0;
     this.isPlaying = true;
     this.currentTime = 0;
+  }
+
+  nextTrack() {
+    const currentIndex = this.tracks.findIndex(
+      (t) => t.id === this.currentTrack?.id,
+    );
+    if (currentIndex < this.tracks.length - 1) {
+      this.setCurrentTrack(this.tracks[currentIndex + 1]);
+    } else {
+      this.setCurrentTrack(this.tracks[0]);
+    }
+  }
+
+  prevTrack() {
+    const currentIndex = this.tracks.findIndex(
+      (t) => t.id === this.currentTrack?.id,
+    );
+    if (currentIndex > 0) {
+      this.setCurrentTrack(this.tracks[currentIndex - 1]);
+    } else {
+      this.setCurrentTrack(this.tracks[this.tracks.length - 1]);
+    }
   }
 
   toggleTrack(track: Track) {

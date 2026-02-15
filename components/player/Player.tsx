@@ -1,15 +1,15 @@
-'use client';
+"use client";
 
-import React, { useEffect, useRef } from 'react';
-import s from './Player.module.scss';
+import React, { useEffect, useRef } from "react";
+import s from "./Player.module.scss";
 
-import playPlayerSvg from '../../public/playSvg.svg';
-import pausePlayerSvg from '../../public/stopSvg.svg';
-import prevPlayerSvg from '../../public/prevSvg.svg';
-import nextPlayerSvg from '../../public/nextSvg.svg';
-import Image from 'next/image';
-import { playerStore } from '../playlist/store/TrackStore';
-import { observer } from 'mobx-react-lite';
+import playPlayerSvg from "../../public/playSvg.svg";
+import pausePlayerSvg from "../../public/stopSvg.svg";
+import prevPlayerSvg from "../../public/prevSvg.svg";
+import nextPlayerSvg from "../../public/nextSvg.svg";
+import Image from "next/image";
+import { playerStore } from "../playlist/store/TrackStore";
+import { observer } from "mobx-react-lite";
 
 const Player = observer(() => {
   const track = playerStore.currentTrack;
@@ -18,7 +18,7 @@ const Player = observer(() => {
   const format = (sec: number) => {
     const m = Math.floor(sec / 60);
     const s = Math.floor(sec % 60);
-    return `${m}:${s.toString().padStart(2, '0')} `;
+    return `${m}:${s.toString().padStart(2, "0")} `;
   };
 
   useEffect(() => {
@@ -35,29 +35,56 @@ const Player = observer(() => {
 
     const onPlay = () => playerStore.setPlaying(true);
     const onPause = () => playerStore.setPlaying(false);
+    const onEnded = () => {
+      playerStore.setPlaying(false);
+      playerStore.setCurrentTime(0);
+      playerStore.nextTrack();
+    };
 
-    audio.addEventListener('play', onPlay);
-    audio.addEventListener('pause', onPause);
-    audio.addEventListener('timeupdate', onTimeUpdate);
-    audio.addEventListener('loadedmetadata', onLoadedMetaData);
+    audio.addEventListener("play", onPlay);
+    audio.addEventListener("pause", onPause);
+    audio.addEventListener("timeupdate", onTimeUpdate);
+    audio.addEventListener("loadedmetadata", onLoadedMetaData);
+    audio.addEventListener("ended", onEnded);
 
     return () => {
-      audio.removeEventListener('play', onPlay);
-      audio.removeEventListener('pause', onPause);
-      audio.removeEventListener('timeupdate', onTimeUpdate);
-      audio.removeEventListener('loadedmetadata', onLoadedMetaData);
+      audio.removeEventListener("play", onPlay);
+      audio.removeEventListener("pause", onPause);
+      audio.removeEventListener("timeupdate", onTimeUpdate);
+      audio.removeEventListener("loadedmetadata", onLoadedMetaData);
+      audio.removeEventListener("ended", onEnded);
     };
-  }, []);
+  }, [track]);
 
   useEffect(() => {
     if (!audioRef.current) return;
 
     if (playerStore.isPlaying) {
-      audioRef.current.play();
+      audioRef.current.play().catch((e) => console.log("Playback failed:", e));
     } else {
       audioRef.current.pause();
     }
   }, [playerStore.isPlaying]);
+
+  useEffect(() => {
+    if (audioRef.current && playerStore.currentTrack) {
+      audioRef.current.src = playerStore.currentTrack.src;
+      if (playerStore.isPlaying) {
+        audioRef.current
+          .play()
+          .catch((e) => console.log("Playback failed:", e));
+      }
+    }
+
+    if (audioRef.current) {
+      if (
+        playerStore.isPlaying &&
+        playerStore.currentTime == playerStore.duration
+      ) {
+        audioRef.current.play();
+      }
+    }
+  }, [playerStore.currentTrack]);
 
   const percent =
     playerStore.duration > 0
@@ -68,6 +95,8 @@ const Player = observer(() => {
 
   return (
     <div className={s.player}>
+      <audio ref={audioRef} />
+
       <div className={s.playerHead}>
         <h2 className={s.trackAutor}>{track?.artist}</h2>
 
@@ -83,26 +112,22 @@ const Player = observer(() => {
 
       <div className={s.playerContent}>
         <div></div>
-        {/* <div className={s.playerSound}>
-          <input type="range" />
-          <Image src={PlayerSoundSvg} alt="" />
-        </div> */}
       </div>
 
       <div className={s.playerFooter}>
-        {/* <div className={s.trackDuration}>
+        <div className={s.trackDuration}>
           <span style={{ width: `${percent}%` }}></span>
-          <audio ref={audioRef} src={playerStore.currentTrack.src}></audio>
-        </div> */}
+        </div>
+
         <div className={s.playerFooterContent}>
           <h2 className={s.traclkTitle}>
             <small>Track</small>
-            {track?.title}
+            {track?.title.slice(0, 20) + "..."}
           </h2>
 
           <div className={s.trackAction}>
-            <button>
-              <Image src={prevPlayerSvg} alt="StopPlayerSvg" />
+            <button onClick={() => playerStore.prevTrack()}>
+              <Image src={prevPlayerSvg} alt="Prev" />
             </button>
 
             <button
@@ -112,18 +137,19 @@ const Player = observer(() => {
               <div>
                 <Image
                   src={playPlayerSvg}
-                  alt="StopPlayerSvg"
-                  className={playerStore.isPlaying ? '' : s.active}
+                  alt="Play"
+                  className={playerStore.isPlaying ? "" : s.active}
                 />
                 <Image
                   src={pausePlayerSvg}
-                  alt="StopPlayerSvg"
-                  className={playerStore.isPlaying ? s.active : ''}
+                  alt="Pause"
+                  className={playerStore.isPlaying ? s.active : ""}
                 />
               </div>
             </button>
-            <button>
-              <Image src={nextPlayerSvg} alt="StopPlayerSvg" />
+
+            <button onClick={() => playerStore.nextTrack()}>
+              <Image src={nextPlayerSvg} alt="Next" />
             </button>
           </div>
 
