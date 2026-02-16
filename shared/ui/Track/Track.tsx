@@ -47,7 +47,7 @@ const Track = observer(({ track }: TrackProps) => {
         <h2 className={s.musicTitle}>{TrackTitle}</h2>
         <small className={s.musicAuthor}>{track.artist}</small>
 
-        <span className={s.musicLength}>я старался блин</span>
+        <span className={s.musicLength}>я старался блин ;)</span>
       </div>
     </li>
   );
