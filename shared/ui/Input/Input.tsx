@@ -4,7 +4,7 @@ import s from './Input.module.scss';
 import Search from '../../../public/search.svg';
 import Image from 'next/image';
 import { useState } from 'react';
-import { playerStore } from '@/components/playlist/store/TrackStore';
+import { playerStore } from '@/components/trakcs/store/TrackStore';
 
 const Input = () => {
   const [value, setValue] = useState<string>('');

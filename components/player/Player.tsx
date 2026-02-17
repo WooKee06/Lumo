@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import React, { useEffect, useRef } from "react";
-import s from "./Player.module.scss";
+import React, { useEffect, useRef } from 'react';
+import s from './Player.module.scss';
 
-import playPlayerSvg from "../../public/playSvg.svg";
-import pausePlayerSvg from "../../public/stopSvg.svg";
-import prevPlayerSvg from "../../public/prevSvg.svg";
-import nextPlayerSvg from "../../public/nextSvg.svg";
-import Image from "next/image";
-import { playerStore } from "../playlist/store/TrackStore";
-import { observer } from "mobx-react-lite";
+import playPlayerSvg from '../../public/playSvg.svg';
+import pausePlayerSvg from '../../public/stopSvg.svg';
+import prevPlayerSvg from '../../public/prevSvg.svg';
+import nextPlayerSvg from '../../public/nextSvg.svg';
+import Image from 'next/image';
+import { playerStore } from '../trakcs/store/TrackStore';
+import { observer } from 'mobx-react-lite';
 
 const Player = observer(() => {
   const track = playerStore.currentTrack;
@@ -18,7 +18,7 @@ const Player = observer(() => {
   const format = (sec: number) => {
     const m = Math.floor(sec / 60);
     const s = Math.floor(sec % 60);
-    return `${m}:${s.toString().padStart(2, "0")} `;
+    return `${m}:${s.toString().padStart(2, '0')} `;
   };
 
   useEffect(() => {
@@ -41,18 +41,18 @@ const Player = observer(() => {
       playerStore.nextTrack();
     };
 
-    audio.addEventListener("play", onPlay);
-    audio.addEventListener("pause", onPause);
-    audio.addEventListener("timeupdate", onTimeUpdate);
-    audio.addEventListener("loadedmetadata", onLoadedMetaData);
-    audio.addEventListener("ended", onEnded);
+    audio.addEventListener('play', onPlay);
+    audio.addEventListener('pause', onPause);
+    audio.addEventListener('timeupdate', onTimeUpdate);
+    audio.addEventListener('loadedmetadata', onLoadedMetaData);
+    audio.addEventListener('ended', onEnded);
 
     return () => {
-      audio.removeEventListener("play", onPlay);
-      audio.removeEventListener("pause", onPause);
-      audio.removeEventListener("timeupdate", onTimeUpdate);
-      audio.removeEventListener("loadedmetadata", onLoadedMetaData);
-      audio.removeEventListener("ended", onEnded);
+      audio.removeEventListener('play', onPlay);
+      audio.removeEventListener('pause', onPause);
+      audio.removeEventListener('timeupdate', onTimeUpdate);
+      audio.removeEventListener('loadedmetadata', onLoadedMetaData);
+      audio.removeEventListener('ended', onEnded);
     };
   }, [track]);
 
@@ -60,7 +60,7 @@ const Player = observer(() => {
     if (!audioRef.current) return;
 
     if (playerStore.isPlaying) {
-      audioRef.current.play().catch((e) => console.log("Playback failed:", e));
+      audioRef.current.play().catch((e) => console.log('Playback failed:', e));
     } else {
       audioRef.current.pause();
     }
@@ -72,7 +72,7 @@ const Player = observer(() => {
       if (playerStore.isPlaying) {
         audioRef.current
           .play()
-          .catch((e) => console.log("Playback failed:", e));
+          .catch((e) => console.log('Playback failed:', e));
       }
     }
 
@@ -97,19 +97,6 @@ const Player = observer(() => {
     <div className={s.player}>
       <audio ref={audioRef} />
 
-      <div className={s.playerHead}>
-        <h2 className={s.trackAutor}>{track?.artist}</h2>
-
-        <section className={s.trackInfo}>
-          <div>
-            <small>Listners</small> <span> {track?.listners}</span>
-          </div>
-          <div>
-            <small>Likes</small> <span> {track?.likes}</span>
-          </div>
-        </section>
-      </div>
-
       <div className={s.playerContent}>
         <div></div>
       </div>
@@ -122,7 +109,7 @@ const Player = observer(() => {
         <div className={s.playerFooterContent}>
           <h2 className={s.traclkTitle}>
             <small>Track</small>
-            {track?.title.slice(0, 20) + "..."}
+            {track?.title.slice(0, 20) + '...'}
           </h2>
 
           <div className={s.trackAction}>
@@ -138,12 +125,12 @@ const Player = observer(() => {
                 <Image
                   src={playPlayerSvg}
                   alt="Play"
-                  className={playerStore.isPlaying ? "" : s.active}
+                  className={playerStore.isPlaying ? '' : s.active}
                 />
                 <Image
                   src={pausePlayerSvg}
                   alt="Pause"
-                  className={playerStore.isPlaying ? s.active : ""}
+                  className={playerStore.isPlaying ? s.active : ''}
                 />
               </div>
             </button>

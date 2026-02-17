@@ -1,0 +1,27 @@
+.PlaylistHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+
+  span {
+    color: #fff;
+  }
+
+  .playlistLength {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+}
+
+.playlsitAction {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  button {
+    background: none;
+    border: none;
+  }
+}

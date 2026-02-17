@@ -1,9 +1,9 @@
-import Image from "next/image";
-import playSvg from "../../../public/play-circle.svg";
-import stopSvg from "../../../public/stop-circle.svg";
-import s from "./Track.module.scss";
-import { playerStore } from "@/components/playlist/store/TrackStore";
-import { observer } from "mobx-react-lite";
+import Image from 'next/image';
+import playSvg from '../../../public/play-circle.svg';
+import stopSvg from '../../../public/stop-circle.svg';
+import s from './Track.module.scss';
+import { playerStore } from '@/components/trakcs/store/TrackStore';
+import { observer } from 'mobx-react-lite';
 
 type TrackProps = {
   track: Track;
@@ -23,7 +23,7 @@ const Track = observer(({ track }: TrackProps) => {
   const isActive =
     playerStore.activeTrackId === track.id && playerStore.isPlaying;
 
-  const TrackTitle = track.title.slice(0, 20) + "...";
+  const TrackTitle = track.title.slice(0, 20) + '...';
 
   return (
     <li onClick={() => playerStore.toggleTrack(track)} className={s.misuc}>
@@ -34,12 +34,12 @@ const Track = observer(({ track }: TrackProps) => {
           <Image
             src={playSvg}
             alt="StopPlayerSvg"
-            className={isActive ? "" : s.active}
+            className={isActive ? '' : s.active}
           />
           <Image
             src={stopSvg}
             alt="StopPlayerSvg"
-            className={isActive ? s.active : ""}
+            className={isActive ? s.active : ''}
           />
         </span>
       </div>
