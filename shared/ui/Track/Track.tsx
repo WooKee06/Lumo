@@ -20,8 +20,7 @@ interface Track {
 }
 
 const Track = observer(({ track }: TrackProps) => {
-  const isActive =
-    playerStore.activeTrackId === track.id && playerStore.isPlaying;
+  const isActive = 0 === track.id && playerStore.isPlaying;
 
   const TrackTitle = track.title.slice(0, 20) + '...';
 
@@ -43,11 +42,15 @@ const Track = observer(({ track }: TrackProps) => {
           />
         </span>
       </div>
-      <div className={s.musicContent}>
-        <h2 className={s.musicTitle}>{TrackTitle}</h2>
-        <small className={s.musicAuthor}>{track.artist}</small>
+      <div className={s.musicInfo}>
+        <div className={s.musicContent}>
+          <h2 className={s.musicTitle}>{TrackTitle}</h2>
+          <small className={s.musicAuthor}>{track.artist}</small>
+        </div>
 
-        <span className={s.musicLength}>я старался блин ;)</span>
+        <span>How to Start Podcast</span>
+        <span>2,412</span>
+        <span>08:12</span>
       </div>
     </li>
   );

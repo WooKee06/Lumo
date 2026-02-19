@@ -2,13 +2,14 @@
   display: flex;
   align-items: center;
   width: 100%;
+  max-height: 76px;
   gap: 5px;
   cursor: pointer;
 
   .musicImg {
     aspect-ratio: 1 / 1;
     height: 100%;
-    width: 35%;
+    width: 76px;
     position: relative;
     border-radius: 15px;
     overflow: hidden;
@@ -87,10 +88,22 @@
     }
   }
 
+  .musicInfo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    width: 100%;
+    span {
+      opacity: 0.3;
+      color: #fff;
+    }
+  }
+
   .musicContent {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    gap: 20px;
     gap: 2px;
     transition: all 0.3s ease-in-out;
     padding: 2px;

@@ -1,6 +1,6 @@
 'use client';
 
-import s from './Playlist.module.scss';
+import s from './Tracks.module.scss';
 
 import { useEffect } from 'react';
 import { playerStore } from '../store/TrackStore';
@@ -9,7 +9,7 @@ import Track from '@/shared/ui/Track/Track';
 import { observer } from 'mobx-react-lite';
 import { useDebouce } from '@/shared/hooks/useDebounce';
 
-const Playlist = observer(() => {
+const Tracks = observer(() => {
   const debouncedValue = useDebouce(playerStore.searchValue, 300);
 
   useEffect(() => {
@@ -31,4 +31,4 @@ const Playlist = observer(() => {
   );
 });
 
-export default Playlist;
+export default Tracks;

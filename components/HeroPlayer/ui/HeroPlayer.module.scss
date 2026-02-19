@@ -1,0 +1,57 @@
+.HeroPlayer {
+  grid-template-columns: 68% 30%;
+  gap: 20px;
+  width: 100%;
+  display: grid;
+  justify-content: space-between;
+}
+
+.tracksFeatured {
+  padding: 10px 20px;
+  border-radius: 15px;
+  background-color: #1d1f27;
+
+  h3 {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 18px;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+  }
+
+  .FeaturedCard {
+    height: 200px;
+    background-color: #ffffff30;
+    border-radius: 15px;
+    padding: 10px;
+    display: flex;
+    align-items: flex-end;
+    gap: 10;
+
+    span {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 14px;
+      color: #ffffff;
+    }
+
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 30px;
+      height: 30px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      color: #fff;
+      -webkit-backdrop-filter: blur(30px) saturate(180%);
+      background: linear-gradient(135deg, #ffffff40, #ffffff0d);
+      border: 1px solid #ffffff4d;
+      border-radius: 15px;
+      width: max-content;
+      position: relative;
+      box-shadow: 0 10px 40px #00000040;
+    }
+  }
+}

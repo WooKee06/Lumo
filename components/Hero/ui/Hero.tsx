@@ -1,6 +1,7 @@
 import HeroHead from '@/components/HeroHead/HeroHead';
 import React from 'react';
 import s from './Hero.module.scss';
+import HeroPlayer from '@/components/HeroPlayer/ui/HeroPlayer';
 
 const Hero = () => {
   return (
@@ -22,6 +23,7 @@ const Hero = () => {
           </section>
         </div>
       </div>
+      <HeroPlayer />
     </div>
   );
 };

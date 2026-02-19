@@ -1,7 +1,7 @@
 'use client';
 import s from './Sidebar.module.scss';
 import Header from '@/components/Header/ui/Header';
-import Playlist from '@/components/trakcs/ui/Playlist';
+import Playlist from '@/components/trakcs/ui/Tracks';
 import PlaylistHeader from '@/components/playlistHeader/ui/PlaylistHeader';
 
 const Sidebar = () => {
@@ -10,7 +10,7 @@ const Sidebar = () => {
       <div className={s.sidebarWrapper}>
         <Header />
         <PlaylistHeader />
-        <Playlist />
+        {/* <Playlist /> */}
       </div>
     </div>
   );
