@@ -16,8 +16,6 @@ const Tracks = observer(() => {
     playerStore.searchTracks(debouncedValue);
   }, [debouncedValue]);
 
-  console.log(playerStore.tracks);
-
   return (
     <div className={s.playlist}>
       {playerStore.loading && <p>Loading...</p>}

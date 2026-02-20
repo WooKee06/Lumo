@@ -1,9 +1,16 @@
 import { makeAutoObservable, runInAction } from 'mobx';
-import { GetMusic, Track } from '../api/MusicApi';
+import {
+  GetAllPlaylist,
+  GetMusic,
+  GetPlaylist,
+  PLaylist,
+  Track,
+} from '../api/MusicApi';
 
 class PlayerStore {
   isPlaying = false;
   tracks: Track[] = [];
+  playlist: PLaylist[] = [];
   currentTrack: Track | null = null;
   duration = 0;
   currentTime = 0;
@@ -23,15 +30,31 @@ class PlayerStore {
       this.loading = true;
 
       const data = await GetMusic();
+      runInAction(() => {
+        this.tracks = data;
+      });
+    } catch (e) {
+      console.error(e);
+    } finally {
+      runInAction(() => {
+        this.loading = false;
+      });
+    }
+  }
+  async searchPlaylist(query: string) {
+    try {
+      this.loading = true;
 
-      const filtered = query
-        ? data.filter((t) =>
-            t.title.toLowerCase().includes(query.toLowerCase())
+      const data = await GetAllPlaylist();
+
+      const filteredPlaylist = query
+        ? data.filter((t: any) =>
+            t.playlistTitle.toLowerCase().includes(query.toLowerCase())
           )
         : data;
 
       runInAction(() => {
-        this.tracks = filtered;
+        this.playlist = filteredPlaylist;
       });
     } catch (e) {
       console.error(e);

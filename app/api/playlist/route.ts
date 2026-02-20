@@ -3,7 +3,9 @@ export async function GET() {
     {
       id: 1,
       playlistTitle: 'Мой плейлист',
-      playlistImg: '',
+      playlistImg:
+        'https://music.pesni.fm/_next/image?url=https%3A%2F%2Fs3img.pesni.fm%2Fcollection%2F000%2F137%2F991%2F349238_large.jpg&w=256&q=75',
+      playlistAuthor: 'Wookee',
       playlistTracks: [
         {
           id: 1,
@@ -42,7 +44,9 @@ export async function GET() {
     {
       id: 2,
       playlistTitle: 'Мои песенки',
-      playlistImg: '',
+      playlistImg:
+        'https://avatars.yandex.net/get-music-content/17681324/b5be34ad.a.39856262-2/200x200',
+      playlistAuthor: 'Nana',
       playlistTracks: [
         {
           id: 1,

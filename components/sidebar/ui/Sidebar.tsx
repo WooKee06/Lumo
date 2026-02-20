@@ -2,14 +2,14 @@
 import s from './Sidebar.module.scss';
 import Header from '@/components/Header/ui/Header';
 import Playlist from '@/components/trakcs/ui/Tracks';
-import PlaylistHeader from '@/components/playlistHeader/ui/PlaylistHeader';
+import PlaylistSidebar from '@/components/playlistSidebar/ui/PlaylistSidebar';
 
 const Sidebar = () => {
   return (
     <div className={s.sidebar}>
       <div className={s.sidebarWrapper}>
         <Header />
-        <PlaylistHeader />
+        <PlaylistSidebar />
         {/* <Playlist /> */}
       </div>
     </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import s from './HeroPlayer.module.scss';
 import Tracks from '@/components/trakcs/ui/Tracks';
+import playPlayerSvg from '../../../public/play-circle.svg';
 import Image from 'next/image';
 
 const HeroPlayer = () => {
@@ -12,12 +13,14 @@ const HeroPlayer = () => {
       <div className={s.tracksFeatured}>
         <h3>Featured by creator</h3>
         <div className={s.FeaturedCard}>
-          <button>
-            <Image src={''} alt="" />
-          </button>
-          <span>
-            Creator business <br /> advice for podcast
-          </span>
+          <section>
+            <button>
+              <Image src={playPlayerSvg} alt="" />
+            </button>
+            <span>
+              Creator business <br /> advice for podcast
+            </span>
+          </section>
         </div>
       </div>
     </div>

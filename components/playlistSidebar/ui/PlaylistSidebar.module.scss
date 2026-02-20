@@ -1,0 +1,174 @@
+.PlaylistHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+
+  span {
+    color: #fff;
+  }
+
+  .playlistLength {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+}
+
+.playlsitAction {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  button {
+    background: none;
+    border: none;
+  }
+}
+
+.PlaylistSidebar {
+  width: 100%;
+
+  ul {
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .misuc {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-height: 76px;
+    gap: 5px;
+    cursor: pointer;
+
+    .musicImg {
+      aspect-ratio: 1 / 1;
+      height: 100%;
+      width: 76px;
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      small {
+        position: absolute;
+        bottom: 5px;
+        color: #fff;
+        font-size: 16px;
+        opacity: 0;
+        transition: all 0.3s ease-in-out;
+        transform: translateY(10);
+      }
+
+      > img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        transition: all 0.2s ease-in-out;
+      }
+
+      .SearchPlaySvg {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+          position: absolute;
+          z-index: 1;
+          transition: all 0.2s ease-in-out;
+          transform: scale(0.5);
+          width: 30px;
+          opacity: 0 !important;
+
+          &:hover {
+            transform: scale(0.8);
+          }
+
+          &.active {
+            opacity: 1;
+            z-index: 2 !important;
+            transform: scale(0.8);
+          }
+        }
+      }
+    }
+
+    &:hover {
+      .musicImg {
+        img {
+          opacity: 0.7;
+          transform: scale(1.1);
+        }
+
+        small {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .musicContent {
+        opacity: 0.6;
+        transform: translateX(4px);
+      }
+
+      .SearchPlaySvg img.active {
+        opacity: 1 !important;
+        transform: scale(1.3);
+      }
+    }
+
+    .musicInfo {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      width: 100%;
+      span {
+        opacity: 0.3;
+        color: #fff;
+      }
+    }
+
+    .musicContent {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      gap: 2px;
+      transition: all 0.3s ease-in-out;
+      padding: 2px;
+    }
+
+    .musicTitle {
+      color: #fff;
+      font-size: 18px;
+      margin: 0;
+      font-weight: 400;
+      padding: 0;
+      margin-bottom: 2px;
+    }
+
+    .musicAuthor {
+      opacity: 0.3;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .musicLength {
+      opacity: 0.3;
+      color: #fff;
+      font-size: 14px;
+      margin-top: 6px;
+    }
+  }
+}
