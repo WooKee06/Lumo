@@ -43,7 +43,7 @@ const PlaylistSidebar = observer(() => {
         {playerStore.playlist.map((playlist, id) => (
           <li key={id} className={s.misuc}>
             <div className={s.musicImg}>
-              <Image src={playlist.playlistImg} alt="playlistImg" fill />
+              <Image src={playlist.image} alt="playlistImg" fill />
 
               <span className={s.SearchPlaySvg}>
                 <Image
@@ -60,11 +60,9 @@ const PlaylistSidebar = observer(() => {
             </div>
             <div className={s.musicInfo}>
               <div className={s.musicContent}>
-                <h2 className={s.musicTitle}>{playlist.playlistTitle}</h2>
+                <h2 className={s.musicTitle}>{playlist.title}</h2>
                 <small className={s.musicAuthor}>
-                  {playlist.playlistTracks.length +
-                    ' podcast · by ' +
-                    playlist.playlistAuthor}
+                  {playlist.tracks?.length + ' podcast · by ' + playlist.author}
                 </small>
               </div>
             </div>

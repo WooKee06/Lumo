@@ -1,20 +1,109 @@
 .player {
   color: #fff;
-  height: 100%;
-  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  position: fixed;
+  z-index: 10;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  padding: 2px;
   padding-right: 20px;
+  border-radius: 17px;
+
+  background: rgba(0, 0, 0, 0.004);
+  border-radius: 17px;
+  backdrop-filter: blur(5px);
+}
+
+.Volume {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.volumeRange {
+  width: 120px;
+  height: 5px;
+  appearance: none;
+  background: rgba(255, 255, 255, 0.564);
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+
+  transition: all 0.2s ease;
+
+  &:hover::-webkit-slider-thumb {
+    transform: scale(1.3);
+  }
+
+  &:hover::-moz-range-thumb {
+    transform: scale(1.3);
+  }
+}
+
+/* Webkit (Chrome, Edge, Safari) */
+.volumeRange::-webkit-slider-runnable-track {
+  height: 5px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.564);
+}
+
+.volumeRange::-webkit-slider-thumb {
+  appearance: none;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+  margin-top: -3.5px;
+  transition: all 0.1s ease-in-out;
+  position: relative;
+}
+
+/* Firefox */
+.volumeRange::-moz-range-track {
+  height: 5px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.564);
+}
+
+.volumeRange::-moz-range-thumb {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background: #fff;
+  border: none;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
 }
 
 .playerHead {
   display: flex;
   align-items: center;
-  gap: 20px;
-  justify-content: space-between;
-  width: 100%;
-  margin-top: 40px;
+  gap: 10px;
+  width: 40%;
+}
+
+.trackImg {
+  width: 110px;
+  height: 100px;
+  border-radius: 15px;
+  object-fit: cover;
+
+  img {
+    border-radius: 15px;
+    position: relative !important;
+  }
+}
+
+//
+
+.trackDurationWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .playerFooter {
@@ -22,12 +111,11 @@
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
-  margin-bottom: 40px;
   gap: 20px;
   position: relative;
 
   .trackDuration {
-    width: 100%;
+    width: 500px;
     height: 5px;
     border-radius: 4px;
     display: flex;
@@ -54,6 +142,7 @@
 
       display: flex;
       align-items: center;
+      padding-left: 10px;
 
       &::after {
         content: '';
@@ -77,33 +166,7 @@
   }
 }
 
-.playerSound {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 70px;
-  input {
-    transform: rotateZ(270deg);
-    transition: all 0.2s ease-in-out;
-
-    &::-webkit-slider-runnable-track {
-      background: #656565;
-      height: 3px;
-
-      border-radius: 4px;
-    }
-
-    &::-moz-range-track {
-      background: #053a5f;
-      height: 0.5rem;
-    }
-  }
-}
-
 .trackAction {
-  position: absolute;
-
-  transform: translate(-50% -50%);
   left: 50%;
   display: flex;
   align-items: center;
@@ -166,8 +229,10 @@
   align-items: flex-start;
   margin: 0;
 
-  font-size: 50px;
+  font-size: 35px;
   font-weight: 400;
+
+  width: 100%;
 
   small {
     opacity: 0.5;

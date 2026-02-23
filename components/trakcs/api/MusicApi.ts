@@ -4,17 +4,16 @@ export type Track = {
   id: number;
   title: string;
   artist: string;
-  likes: string;
   src: string;
-  imgPreview: string;
-  listners: string;
+  img_preview: string;
+  playlist_id: number;
 };
 export type PLaylist = {
   id: number;
-  playlistTitle: string;
-  playlistAuthor: string;
-  playlistImg: string;
-  playlistTracks: Track[];
+  title: string;
+  author: string;
+  image: string;
+  tracks: Track[];
 };
 
 export const GetMusic = async () => {

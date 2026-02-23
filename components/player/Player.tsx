@@ -5,6 +5,7 @@ import s from './Player.module.scss';
 
 import playPlayerSvg from '../../public/playSvg.svg';
 import pausePlayerSvg from '../../public/stopSvg.svg';
+import Volume from '../../public/svg/volume.svg';
 import prevPlayerSvg from '../../public/prevSvg.svg';
 import nextPlayerSvg from '../../public/nextSvg.svg';
 import Image from 'next/image';
@@ -102,15 +103,20 @@ const Player = observer(() => {
       </div>
 
       <div className={s.playerFooter}>
-        <div className={s.trackDuration}>
-          <span style={{ width: `${percent}%` }}></span>
-        </div>
-
         <div className={s.playerFooterContent}>
-          <h2 className={s.traclkTitle}>
-            <small>Track</small>
-            {track?.title.slice(0, 20) + '...'}
-          </h2>
+          <div className={s.playerHead}>
+            <div className={s.trackImg}>
+              <Image
+                src={track?.img_preview ?? '/default-cover.png'}
+                alt={track?.title ?? 'cover'}
+                fill
+              />
+            </div>
+            <h2 className={s.traclkTitle}>
+              {track?.title.slice(0, 25) + '...'}
+              <small>{track?.artist}</small>
+            </h2>
+          </div>
 
           <div className={s.trackAction}>
             <button onClick={() => playerStore.prevTrack()}>
@@ -140,10 +146,24 @@ const Player = observer(() => {
             </button>
           </div>
 
-          <h3 className={s.trackLenght}>
-            {format(playerStore.currentTime)}
-            <span>/ {format(playerStore.duration)} </span>
-          </h3>
+          <div className={s.trackDurationWrapper}>
+            <small>{format(playerStore.currentTime)}</small>
+            <div className={s.trackDuration}>
+              <span style={{ width: `${percent}%` }}></span>
+            </div>
+            <small>{format(playerStore.duration)} </small>
+          </div>
+
+          <div className={s.Volume}>
+            <Image src={Volume} alt="Volume" />
+            <input
+              type="range"
+              min="0"
+              max="100"
+              defaultValue="50"
+              className={s.volumeRange}
+            />
+          </div>
         </div>
       </div>
     </div>

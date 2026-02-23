@@ -15,8 +15,9 @@ interface Track {
   artist: string;
   likes: string;
   src: string;
-  imgPreview: string;
+  img_preview: string;
   listners: string;
+  playlist_id: number;
 }
 
 const Track = observer(({ track }: TrackProps) => {
@@ -27,7 +28,7 @@ const Track = observer(({ track }: TrackProps) => {
   return (
     <li onClick={() => playerStore.toggleTrack(track)} className={s.misuc}>
       <div className={s.musicImg}>
-        <Image src={track.imgPreview} alt="playlistImg" fill />
+        <Image src={track.img_preview} alt="playlistImg" fill />
 
         <span className={s.SearchPlaySvg}>
           <Image
