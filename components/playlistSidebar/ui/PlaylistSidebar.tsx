@@ -3,8 +3,6 @@
 import React, { useEffect, useRef } from 'react';
 import s from './PlaylistSidebar.module.scss';
 import Image from 'next/image';
-import playSvg from '../../../public/play-circle.svg';
-import stopSvg from '../../../public/stop-circle.svg';
 
 import playlistLength from '../../../public/svg/list-music.svg';
 import playlistSearch from '../../../public/svg/search.svg';
@@ -12,9 +10,9 @@ import playlistAdd from '../../../public/svg/plus.svg';
 import { playerStore } from '@/components/trakcs/store/TrackStore';
 import { useDebouce } from '@/shared/hooks/useDebounce';
 import { observer } from 'mobx-react-lite';
+import PlaylistItem from '@/shared/ui/PlaylistItem/PlaylistItem';
 
 const PlaylistSidebar = observer(() => {
-  const isActive = 1 && playerStore.isPlaying;
   const debouncedValue = useDebouce(playerStore.searchValue, 300);
 
   useEffect(() => {
@@ -40,33 +38,8 @@ const PlaylistSidebar = observer(() => {
       </div>
 
       <ul>
-        {playerStore.playlist.map((playlist, id) => (
-          <li key={id} className={s.misuc}>
-            <div className={s.musicImg}>
-              <Image src={playlist.image} alt="playlistImg" fill />
-
-              <span className={s.SearchPlaySvg}>
-                <Image
-                  src={playSvg}
-                  alt="StopPlayerSvg"
-                  className={isActive ? '' : s.active}
-                />
-                <Image
-                  src={stopSvg}
-                  alt="StopPlayerSvg"
-                  className={isActive ? s.active : ''}
-                />
-              </span>
-            </div>
-            <div className={s.musicInfo}>
-              <div className={s.musicContent}>
-                <h2 className={s.musicTitle}>{playlist.title}</h2>
-                <small className={s.musicAuthor}>
-                  {playlist.tracks?.length + ' podcast · by ' + playlist.author}
-                </small>
-              </div>
-            </div>
-          </li>
+        {playerStore.playlist.map((playlist) => (
+          <PlaylistItem playlist={playlist} key={playlist.id} />
         ))}
       </ul>
     </div>

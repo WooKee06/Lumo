@@ -13,15 +13,14 @@ interface Track {
   id: number;
   title: string;
   artist: string;
-  likes: string;
   src: string;
   img_preview: string;
-  listners: string;
   playlist_id: number;
 }
 
 const Track = observer(({ track }: TrackProps) => {
-  const isActive = 0 === track.id && playerStore.isPlaying;
+  const isActive =
+    playerStore.currentTrack?.id === track.id && playerStore.isPlaying;
 
   const TrackTitle = track.title.slice(0, 20) + '...';
 

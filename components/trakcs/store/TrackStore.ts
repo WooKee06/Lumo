@@ -16,6 +16,7 @@ class PlayerStore {
   currentTime = 0;
   searchValue = '';
   loading = false;
+  volume = 0.5;
 
   constructor() {
     makeAutoObservable(this);
@@ -70,6 +71,10 @@ class PlayerStore {
     this.duration = 0;
     this.currentTime = 0;
     this.isPlaying = true;
+  }
+
+  setVolume(value: number) {
+    this.volume = value;
   }
 
   setCurrentTrack(track: Track) {

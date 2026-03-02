@@ -8,6 +8,7 @@ import { playerStore } from '../store/TrackStore';
 import Track from '@/shared/ui/Track/Track';
 import { observer } from 'mobx-react-lite';
 import { useDebouce } from '@/shared/hooks/useDebounce';
+import { playlistSidebarStore } from '@/components/playlistSidebar/store/PlaylistSidebarStore';
 
 const Tracks = observer(() => {
   const debouncedValue = useDebouce(playerStore.searchValue, 300);
@@ -21,7 +22,7 @@ const Tracks = observer(() => {
       {playerStore.loading && <p>Loading...</p>}
 
       <ul>
-        {playerStore.tracks.map((track) => (
+        {playlistSidebarStore.currentPlaylist?.tracks.map((track) => (
           <Track key={track.id} track={track} />
         ))}
       </ul>

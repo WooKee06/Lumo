@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 import BackSvg from '../../public/svg/majesticons_door-enter-line-1.svg';
 import SearchSvg from '../../public/svg/search (2) 1.svg';
-import BellSvg from '../../public/svg/search (2) 1.svg';
+import BellSvg from '../../public/svg/bell.svg';
 import EnterSvg from '../../public/svg/majesticons_door-enter-line.svg';
 
 const HeroHead = () => {

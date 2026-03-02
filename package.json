@@ -11,7 +11,7 @@
   "dependencies": {
     "@developer-hub/liquid-glass": "^1.2.3",
     "@react-icons/all-files": "^4.1.0",
-    "@supabase/supabase-js": "^2.97.0",
+    "@supabase/supabase-js": "^2.98.0",
     "axios": "^1.13.3",
     "framer-motion": "^12.31.0",
     "mobx": "^6.15.0",

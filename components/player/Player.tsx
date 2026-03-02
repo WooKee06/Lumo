@@ -15,6 +15,7 @@ import { observer } from 'mobx-react-lite';
 const Player = observer(() => {
   const track = playerStore.currentTrack;
   const audioRef = useRef<HTMLAudioElement>(null);
+  const progressRef = useRef<HTMLDivElement>(null);
 
   const format = (sec: number) => {
     const m = Math.floor(sec / 60);
@@ -87,6 +88,29 @@ const Player = observer(() => {
     }
   }, [playerStore.currentTrack]);
 
+  useEffect(() => {
+    if (!audioRef.current) return;
+    audioRef.current.volume = playerStore.volume;
+  }, [playerStore.volume]);
+
+  const handleSeek = (e: React.MouseEvent<HTMLDivElement>) => {
+    const bar = progressRef.current;
+    const audio = audioRef.current;
+
+    if (!bar || !audio || !playerStore.duration) return;
+
+    const rect = bar.getBoundingClientRect();
+
+    const clickX = e.clientX - rect.left;
+    const width = rect.width;
+
+    const percent = clickX / width;
+    const newTime = percent * playerStore.duration;
+
+    audio.currentTime = newTime;
+    playerStore.setCurrentTime(newTime);
+  };
+
   const percent =
     playerStore.duration > 0
       ? (playerStore.currentTime / playerStore.duration) * 100
@@ -107,7 +131,7 @@ const Player = observer(() => {
           <div className={s.playerHead}>
             <div className={s.trackImg}>
               <Image
-                src={track?.img_preview ?? '/default-cover.png'}
+                src={track?.img_preview ?? ''}
                 alt={track?.title ?? 'cover'}
                 fill
               />
@@ -148,7 +172,11 @@ const Player = observer(() => {
 
           <div className={s.trackDurationWrapper}>
             <small>{format(playerStore.currentTime)}</small>
-            <div className={s.trackDuration}>
+            <div
+              className={s.trackDuration}
+              ref={progressRef}
+              onClick={handleSeek}
+            >
               <span style={{ width: `${percent}%` }}></span>
             </div>
             <small>{format(playerStore.duration)} </small>
@@ -160,8 +188,11 @@ const Player = observer(() => {
               type="range"
               min="0"
               max="100"
-              defaultValue="50"
               className={s.volumeRange}
+              value={playerStore.volume * 100}
+              onChange={(e) =>
+                playerStore.setVolume(Number(e.target.value) / 100)
+              }
             />
           </div>
         </div>
