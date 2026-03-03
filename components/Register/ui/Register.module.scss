@@ -1,0 +1,28 @@
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+  margin: auto;
+
+  input {
+    padding: 14px 20px;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    width: 40%;
+  }
+
+  button {
+    padding: 14px 80px;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+  }
+
+  p {
+    color: #fff;
+  }
+}
