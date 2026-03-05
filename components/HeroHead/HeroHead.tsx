@@ -14,15 +14,6 @@ import { useEffect } from 'react';
 const HeroHead = () => {
   const user = false;
 
-  useEffect(() => {
-    async function loadUser() {
-      const { data } = await supabase.auth.getUser();
-      console.log(data.user);
-    }
-
-    loadUser();
-  }, []);
-
   return (
     <div className={s.HeroHead}>
       <button>
