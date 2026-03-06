@@ -25,9 +25,13 @@ export async function POST(req: Request) {
 
   const fileName = `${Date.now()}-${file.name}`;
 
+  const bytes = await file.arrayBuffer();
+
   const { error: uploadError } = await supabase.storage
     .from('playlist-images')
-    .upload(fileName, file);
+    .upload(fileName, bytes, {
+      contentType: file.type,
+    });
 
   if (uploadError) {
     return Response.json({ error: uploadError.message }, { status: 500 });

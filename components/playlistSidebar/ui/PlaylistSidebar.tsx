@@ -22,6 +22,10 @@ const PlaylistSidebar = observer(() => {
     playerStore.searchPlaylist(debouncedValue);
   }, [debouncedValue]);
 
+  const CloseModalHandler = () => {
+    setIsOpen(false);
+  };
+
   return (
     <div className={s.PlaylistSidebar}>
       <div className={s.PlaylistHeader}>
@@ -46,7 +50,7 @@ const PlaylistSidebar = observer(() => {
         ))}
       </ul>
 
-      <ModalAddPlaylist isOpen={isOpen} />
+      <ModalAddPlaylist onCLose={CloseModalHandler} isOpen={isOpen} />
     </div>
   );
 });
