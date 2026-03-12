@@ -19,6 +19,7 @@ const ModalAddPlaylist = ({ isOpen, onCLose }: ModalAddPlaylistProps) => {
     e.preventDefault();
 
     if (!file) return;
+    onCLose();
 
     const formData = new FormData();
     formData.append('title', title);

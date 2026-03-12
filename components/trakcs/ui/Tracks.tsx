@@ -9,6 +9,7 @@ import Track from '@/shared/ui/Track/Track';
 import { observer } from 'mobx-react-lite';
 import { useDebouce } from '@/shared/hooks/useDebounce';
 import { playlistSidebarStore } from '@/components/playlistSidebar/store/PlaylistSidebarStore';
+import EmptyPlaylist from '@/components/EmptyPlaylist/EmptyPlaylist';
 
 const Tracks = observer(() => {
   const debouncedValue = useDebouce(playerStore.searchValue, 300);
@@ -17,6 +18,9 @@ const Tracks = observer(() => {
     playerStore.searchTracks(debouncedValue);
   }, [debouncedValue]);
 
+  if (playlistSidebarStore.currentPlaylist?.tracks.length === 0) {
+    return <EmptyPlaylist />;
+  }
   return (
     <div className={s.playlist}>
       {playerStore.loading && <p>Loading...</p>}
