@@ -25,7 +25,6 @@ export const GetAllPlaylist = async () => {
   const { data } = await axios.get<PLaylist[]>(
     'http://localhost:3000/api/playlist'
   );
-  console.log(data);
   return data;
 };
 export const GetPlaylist = async (id: number) => {
